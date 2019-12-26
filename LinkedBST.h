@@ -15,7 +15,7 @@ private:
 public:
 	LinkedBST();
 	~LinkedBST();
-	void preordertraversal();
+	void preordertraversal(node* root);
 	bool searchBST(int data);
 	void addBST(node *root,int data);
 	

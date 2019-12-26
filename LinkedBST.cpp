@@ -9,7 +9,15 @@ LinkedBST::~LinkedBST(){
 
 }
 
-void LinkedBST::preordertraversal(){
+void LinkedBST::preordertraversal(Node* root){
+
+    if (node == NULL) 
+        return; 
+    
+    cout << root->data;
+    printPreorder(node->left); 
+    printPreorder(node->right); 
+} 
 
 
 }
