@@ -6,13 +6,29 @@ using namespace std;
 
 int main(){
 	LinkedBST tree1;
-	tree1.add(&tree1.root,10);
-	tree1.add(&tree1.root,5);
-	tree1.add(&tree1.root,15);
-	tree1.add(&tree1.root,13);
-	tree1.add(&tree1.root,20);
+	int number;
+	char character;
+	
+	top:
+	cout<<"Enter any number"<<endl;
+	cin>>number;
+	tree1.add(&tree1.root,number);
+	cout<<"Do you want to enter again(y/n)??"<<endl;
+	cin>>character;
+	if((character=='y') || (character=='Y')) goto top;
+	
+	
+	cout<<"preorderTraversal of the tree is"<<endl;
 	tree1.preorderTraversal(&tree1.root);
 	cout<<endl;
-    tree1.search(&tree1.root,10);
-    tree1.search(&tree1.root,3);
+	
+	search:
+	cout<<"Enter any number you wanna search"<<endl;
+	cin>>number;
+	tree1.search(&tree1.root,number);
+	cout<<"Do you want to search again(y/n)??"<<endl;
+	cin>>character;
+	if((character=='y') || (character=='Y')) goto search;
+	
+
 }
