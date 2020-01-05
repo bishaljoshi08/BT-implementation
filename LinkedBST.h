@@ -3,30 +3,30 @@
 #include "binarytree.h"
 
 
-class Node{
-public:
+class node
+{
     int data;
-    Node *left;
-    Node *right;
-    Node(){
-        data=0;
-        left=right=NULL;
-    }
+    node* left ;
+    node* right;
     friend class LinkedBST;
+public:
+    node();
+    node(int);
+    ~node();
 };
-
 
 
 class LinkedBST:public BinarySearchTree{
+    
     public:
-    Node *root;
+    node root;
     LinkedBST();
     ~LinkedBST();
     void preorderTraversal();
-    void preorderTraversal(Node *root);
+    void preorderTraversal(node *root);
     void add(int data);
-    void add(Node *&root,int data);
+    void add(node *root,int data);
     bool search(int data);
-    bool search(Node *&root,int targetKey);
-    void add(Node *&subtree, Node *newNode);
+    bool search(node *root,int targetKey);
 };
+#endif

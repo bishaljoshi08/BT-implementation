@@ -2,14 +2,25 @@
 #include<iostream>
 using namespace std;
 
+node::node(){
+    data=0;
+    left=right=nullptr;
+}
+
+node::node(int value){
+    data=value;
+    left=right=nullptr;
+}
+
+node::~node(){}
+
+
 LinkedBST::LinkedBST(){
-    root=NULL;
 }
 
 LinkedBST::~LinkedBST(){}
 
 void LinkedBST::add(int data){
-    add(root,data);
 }
 
 void LinkedBST::preorderTraversal(){}
@@ -17,45 +28,39 @@ void LinkedBST::preorderTraversal(){}
 bool LinkedBST::search(int data){}
 
 
-void LinkedBST::add(Node *&root,int data){
-    Node *newNode=new Node();
-    newNode->data=data;
-    if(root==NULL){
-        root=new Node();
-        this->root=newNode;
-    }
-    else{
-        add(root,newNode);
+void LinkedBST::add(node *root,int data){
+if (root->data==0){
+    root->data=data;
+}else{
+        if (data < root->data){
+            if (!root->left){ 
+                node *newnode=new node(data); 
+                root->left=newnode;
+            }
+            else{
+                add(root->left,data);
+            }
+        }
+        else if (data > root->data){
+            if (!root->right){ 
+                node *newnode=new node(data); 
+                root->right=newnode;
+            }
+            else{
+                add(root->right,data);
+            }
+        }
     }
 }
 
-void LinkedBST::add(Node *&subtree, Node *newNode){
-    if(subtree->data>newNode->data){
-        if(subtree->left!=NULL){
-            add(subtree->left,newNode);
-        }
-        else{
-            subtree->left=newNode;
-        }
+bool LinkedBST::search(node *root,int targetKey){
+    if(root->data==0){
+        cout<<"It is a Null tree"<<endl;
     }
     else{
-        if(subtree->right!=NULL){
-            add(subtree->right,newNode);
-        }
-        else{
-            subtree->right=newNode;
-        }
-    }   
-}
-
-bool LinkedBST::search(Node *&root,int targetKey){
-    if(root==NULL){
-        std::cout<<"It is a Null tree"<<std::endl;
-    }
-    else{
-        Node *p=new Node();
+        node *p=new node();
         p=root;
-        while(p!=NULL){
+        while(p){
             if(targetKey>p->data){
                 p=p->right;
             }
@@ -63,23 +68,27 @@ bool LinkedBST::search(Node *&root,int targetKey){
                 p=p->left;
             }
             else if(targetKey==p->data){
-                return true;
+                cout<<targetKey<<" is here"<<endl;
+                return 1;
+                
             }
             else{
-                return false;
+                cout<<targetKey<<" is not here"<<endl;
+                return 0;
             }
         }
     }
-    return false;
+    cout<<targetKey<<" is not here"<<endl;
+    return 0;
 }
 
 
-void LinkedBST::preorderTraversal(Node* root) { 
-    if (root == NULL) 
+void LinkedBST::preorderTraversal(node* root) { 
+    if (!root) 
     return; 
   
     
-    std::cout << root->data << " "; 
+    cout << root->data << "\t"; 
   
     
     preorderTraversal(root->left);  
