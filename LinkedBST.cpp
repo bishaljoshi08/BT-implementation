@@ -1,62 +1,89 @@
 #include"LinkedBST.h"
 #include<iostream>
+using namespace std;
 
 LinkedBST::LinkedBST(){
-	root = NULL;
+    root=NULL;
 }
 
-LinkedBST::~LinkedBST(){
+LinkedBST::~LinkedBST(){}
 
+void LinkedBST::add(int data){
+    add(root,data);
 }
 
-void LinkedBST::preordertraversal(Node* root){
+void LinkedBST::preorderTraversal(){}
 
-    if (node == NULL) 
-        return; 
+bool LinkedBST::search(int data){}
+
+
+void LinkedBST::add(Node *&root,int data){
+    Node *newNode=new Node();
+    newNode->data=data;
+    if(root==NULL){
+        root=new Node();
+        this->root=newNode;
+    }
+    else{
+        add(root,newNode);
+    }
+}
+
+void LinkedBST::add(Node *&subtree, Node *newNode){
+    if(subtree->data>newNode->data){
+        if(subtree->left!=NULL){
+            add(subtree->left,newNode);
+        }
+        else{
+            subtree->left=newNode;
+        }
+    }
+    else{
+        if(subtree->right!=NULL){
+            add(subtree->right,newNode);
+        }
+        else{
+            subtree->right=newNode;
+        }
+    }   
+}
+
+bool LinkedBST::search(Node *&root,int targetKey){
+    if(root==NULL){
+        std::cout<<"It is a Null tree"<<std::endl;
+    }
+    else{
+        Node *p=new Node();
+        p=root;
+        while(p!=NULL){
+            if(targetKey>p->data){
+                p=p->right;
+            }
+            else if(targetKey<p->data){
+                p=p->left;
+            }
+            else if(targetKey==p->data){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+    }
+    return false;
+}
+
+
+void LinkedBST::preorderTraversal(Node* root) { 
+    if (root == NULL) 
+    return; 
+  
     
-    cout << root->data;
-    printPreorder(node->left); 
-    printPreorder(node->right); 
-} 
-
-
-}
-
-bool LinkedBST::searchBST(int data){
-	node* p=root;
-	while(p!=null){
-		if (p->data == data) 
-			return true;
-		else if (data < p->data)
-			p=p->left;
-		else 
-			p=p->right;
-	}
-	return false;
-}
-
-void LinkedBST::addBST(node *root,int data){
-	root
-	
-	if (data < root->data){
-		if (root->left!=NULL){ 
-			
-			addBST(root->left,data);
-		}
-		else{
-			Node *newNode=new Node(); 
-			newNode->data=data;
-			root->left=newNode
-		}
-	}
-	else if (data > root->data){
-		if (root->right!=NULL){ 
-			
-			addBST(root->right,data);
-		}
-		else{
-			Node *newNode=new Node(); 
-			newNode->data=data;
-			root->right=newNode
-		}
-	}
+    std::cout << root->data << " "; 
+  
+    
+    preorderTraversal(root->left);  
+  
+    
+    preorderTraversal(root->right); 
+}  
