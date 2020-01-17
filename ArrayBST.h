@@ -10,7 +10,7 @@ class ArrayBST : public BinarySearchTree
         ~ArrayBST();
         void preorderTraversal();
         void add(int data);
-        int search(int data);
+        bool search(int data);
 };
 
 
