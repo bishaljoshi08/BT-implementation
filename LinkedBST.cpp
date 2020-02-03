@@ -99,16 +99,17 @@ void LinkedBST::preorderTraversal(node* root) {
     preorderTraversal(root->right); 
 }  
 
-int min(node* root){
+int LinkedBST::min(node* root){
     if(root->data==0){
         cout<<"It is a Null tree"<<endl;
     }
-    else{
-        node *p=new node();
-        p=root;
-        while(p){
-            p=p->left;
-        }
-        return p->data;
+    else if(root->left==nullptr){
+        return root->data;
     }
+    else{
+        min(root->left);
+        
+    }
+        
+    
 }

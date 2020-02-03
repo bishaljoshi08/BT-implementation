@@ -22,6 +22,9 @@ int main(){
 	tree1.preorderTraversal(&tree1.root);
 	cout<<endl;
 	
+	cout<<"minimun value of the tree is"<<endl;
+	cout<<tree1.min(&tree1.root)<<endl;
+	
 	search:
 	cout<<"Enter any number you wanna search"<<endl;
 	cin>>number;
@@ -29,6 +32,4 @@ int main(){
 	cout<<"Do you want to search again(y/n)??"<<endl;
 	cin>>character;
 	if((character=='y') || (character=='Y')) goto search;
-	
-
 }
