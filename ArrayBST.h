@@ -11,6 +11,7 @@ class ArrayBST : public BinarySearchTree
         void preorderTraversal();
         void add(int data);
         bool search(int data);
+        int max();
 };
 
 
