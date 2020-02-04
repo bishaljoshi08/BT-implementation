@@ -79,13 +79,29 @@ void ArrayBST::preorderTraversal(){
 		}	
 		}	
 	}
+int ArrayBST::max()
+{
+	for(int i=1;i<MAX_SIZE;)
+	{
+		if(this->elements[2*i+1]!=0)
+		{
+			i=2*i+1;
+		}
+		else
+		{
+			return elements[i];
+		}
+		
+	}
+	
+}
 	
 int main(){
 	ArrayBST a;
 	a.add(1);
 	a.add(9);
 	a.add(21);
-	a.add(7);
+	a.add(70);
 	a.add(46);
 	a.add(33);
 	a.add(21);
@@ -98,6 +114,9 @@ int main(){
 	cout<<endl;
 	a.search(33);
 	a.search(29);
+	int b;
+	b=a.max();
+	cout<<b;
 	return 0;
 }
 
