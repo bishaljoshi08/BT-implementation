@@ -50,35 +50,43 @@ void ArrayBST::preorderTraversal(){
 	int j=0;						//For visited parent node
 	int k=0;						//For visited left node
 	int l=0;						//For visited right node
-	while(i<MAX_SIZE && i>0){
-		if(j!=1){
+	while(i<MAX_SIZE && i>0)
+	{
+		if(j!=1)
+		{
 			cout<<this->elements[i]<<" ";
 			k=0;
 			l=0;
 		}
-		if(2*i<MAX_SIZE && this->elements[2*i]!=0 && k!=1){
+		if(2*i<MAX_SIZE && this->elements[2*i]!=0 && k!=1)
+		{
 			i=2*i;
 			j=0;
 			l=0;
 		}
-		else if (2*i+1<MAX_SIZE && this->elements[2*i+1]!=0 && l!=1){
+		else if (2*i+1<MAX_SIZE && this->elements[2*i+1]!=0 && l!=1)
+		{
 			i=2*i+1;
 			j=0;
 			k=0;
 		}
-		else{
-			if(i%2!=0){					//Check if right node is visited.
+		else
+		{
+			if(i%2!=0)
+			{					//Check if right node is visited.
 				l=1;
 			}
-			else{
+			else
+			{
 				l=0;
 			}
 			i=int(i/2);
 			j=1;
 			k=1;
 		}	
-		}	
+		}	 
 	}
+	
 int ArrayBST::max()
 {
 	for(int i=1;i<MAX_SIZE;)
@@ -96,16 +104,46 @@ int ArrayBST::max()
 	
 }
 	
+int ArrayBST::min()
+{
+	
+}
+void ArrayBST::remove(int data)
+{
+}
+void ArrayBST::inoreder(int x)
+{
+	
+	int l=2*x;
+	int r=2*x+1;
+	if(this->elements[l]!=0)
+	{
+		inoreder( l);
+	}
+	cout<<(this->elements[x])<<" ";
+	
+	if(this->elements[r]!=0)
+	{
+		inoreder( r);
+	}
+	
+		
+}
+
 int main(){
 	ArrayBST a;
+	a.add(15);
+	a.add(10);
+	a.add(11);
+	a.add(14);
+	a.add(13);
+	a.add(4);
 	a.add(1);
-	a.add(9);
-	a.add(21);
-	a.add(70);
-	a.add(46);
-	a.add(33);
-	a.add(21);
-	a.add(28);
+	a.add(5);
+	a.add(16);
+	a.add(18);
+	a.add(17);
+	a.add(20);
 	for(int i=0;i<MAX_SIZE;i++){
 		cout<<a.elements[i]<<",";
 	}
@@ -116,7 +154,8 @@ int main(){
 	a.search(29);
 	int b;
 	b=a.max();
-	cout<<b;
+	cout<<b<<endl;
+	a.inoreder(1);
 	return 0;
 }
 

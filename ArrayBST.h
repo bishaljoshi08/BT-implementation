@@ -1,5 +1,5 @@
 #include "binarytree.h"
-#define MAX_SIZE 16
+#define MAX_SIZE 400
 
 class ArrayBST : public BinarySearchTree
 {
@@ -12,6 +12,9 @@ class ArrayBST : public BinarySearchTree
         void add(int data);
         bool search(int data);
         int max();
+ 		 int min();
+ 		void remove(int data);
+ 		void inoreder(int x);
 };
 
 

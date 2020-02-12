@@ -9,6 +9,8 @@ class BinarySearchTree{
 			virtual int min()=0;
 
 			virtual int max()=0;
+			virtual void remove(int data)=0;
+			virtual void inoreder(int x)=0;
 
 };
 #endif
