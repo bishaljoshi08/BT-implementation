@@ -1,12 +1,10 @@
-# Lab 3 and 4
-<br>
+# lab 3 and 4-
 
-## Array and Linked List Implementation of Binary Tree
-Name: Deependra Gupta<br>                                       
-Roll. No: 18<br>
-<br>
 
-Name: Bishal Joshi<br>
-<br>
-Roll. No: 19<br>
+		Created by:
+		Bishal Joshi(19) & Deependra Gupta(18)
+
+
+		Submitted to:
+		Rajani Chulyadyo
 
