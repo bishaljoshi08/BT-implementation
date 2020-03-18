@@ -1,35 +1,20 @@
-#include<iostream>
-#include"LinkedBST.h"
-#include"binarytree.h"
-using namespace std;
+#include "LinkedBST.cpp"
+#include "ArrayBST.cpp"
+int main()
+{
 
-
-int main(){
-	LinkedBST tree1;
-	int number;
-	char character;
-	
-	top:
-	cout<<"Enter any number"<<endl;
-	cin>>number;
-	tree1.add(&tree1.root,number);
-	cout<<"Do you want to enter again(y/n)??"<<endl;
-	cin>>character;
-	if((character=='y') || (character=='Y')) goto top;
-	
-	
-	cout<<"preorderTraversal of the tree is"<<endl;
-	tree1.preorderTraversal(&tree1.root);
-	cout<<endl;
-	
-	cout<<"minimun value of the tree is"<<endl;
-	cout<<tree1.min(&tree1.root)<<endl;
-	
-	search:
-	cout<<"Enter any number you wanna search"<<endl;
-	cin>>number;
-	tree1.search(&tree1.root,number);
-	cout<<"Do you want to search again(y/n)??"<<endl;
-	cin>>character;
-	if((character=='y') || (character=='Y')) goto search;
+    std::cout << "Linked List Implementation:" << std::endl;
+    LinkedBST tree;
+    tree.add(tree.root, 35);
+    tree.add(45);
+    Node *newNode = new Node();
+    newNode->data = 50;
+    tree.add(tree.root, newNode);
+    tree.preorderTraversal(tree.root);
+    tree.deleteBST(tree.root, 45);
+    std::cout << std::endl
+              << tree.search(tree.root, 50) << std::endl;
+    std::cout << tree.min() << std::endl;
+    std::cout << tree.max() << std::endl;
+    tree.preorderTraversal(tree.root);
 }
