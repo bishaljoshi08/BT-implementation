@@ -106,6 +106,20 @@ int ArrayBST::max()
 	
 int ArrayBST::min()
 {
+		for(int i=1;i<MAX_SIZE;)
+	{
+		if(this->elements[2*i]!=0)
+		{
+			i=2*i;
+		}
+		else
+		{
+			return elements[i];
+		}
+		
+	}
+	
+
 	
 }
 void ArrayBST::remove(int data)
@@ -155,6 +169,9 @@ int main(){
 	int b;
 	b=a.max();
 	cout<<b<<endl;
+	int c;
+	c=a.min();
+	cout<<c<<endl;
 	a.inoreder(1);
 	return 0;
 }
